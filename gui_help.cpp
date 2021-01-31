@@ -73,7 +73,7 @@ uint32_t fb_display::get_framebpp(){
     return var_info.bits_per_pixel;
 }
 
-inline void fb_display::draw_pixel(uint32_t x, uint32_t y, 
+void fb_display::draw_pixel(uint32_t x, uint32_t y, 
                         uint8_t red, uint8_t green, uint8_t blue){
     uint32_t pix_offset;
     pix_offset = (2*x) + y * fix_info.line_length;

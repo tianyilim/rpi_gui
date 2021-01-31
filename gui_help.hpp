@@ -43,7 +43,7 @@ class fb_display{
 
         // Draw a pixel at specified (x,y); 16 bit color depth.
         // draw pixel is small, made inline; should be faster...
-        inline void draw_pixel(uint32_t x, uint32_t y, 
+        void draw_pixel(uint32_t x, uint32_t y, 
                         uint8_t red, uint8_t green, uint8_t blue);
 
         // Draw a rectangle of specified area and color
