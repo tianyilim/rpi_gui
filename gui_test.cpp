@@ -8,17 +8,19 @@ int main (){
     uint32_t screenx = mydisplay.get_framex();
     uint32_t screeny = mydisplay.get_framey();
 
+    // uint16_t r, g, b;   // stuff was overflowing before...
+    mydisplay.clear_screen();
     // split screen into 4
     // upp left
-    mydisplay.draw_rectangle(0, 0, screenx/2, screeny/2, 0, 0, 0b11111);
+    mydisplay.draw_rectangle(0, 0, screenx/2, screeny/2, 0, 0, 0xFF);                   // Blue
     // upp right
-    mydisplay.draw_rectangle(screenx/2, 0, screenx/2, screeny/2, 0, 0b1111111, 0);
+    mydisplay.draw_rectangle(screenx/2, 0, screenx/2, screeny/2, 0, 0xFF, 0);           // Green
     // lower left
-    mydisplay.draw_rectangle(0, screeny/2, screenx/2, screeny/2, 0b11111, 0, 0);
+    mydisplay.draw_rectangle(0, screeny/2, screenx/2, screeny/2, 0xFF, 0, 0);           // Red
     // lower right
-    mydisplay.draw_rectangle(screenx/2, screeny/2, screenx/2, screeny/2, 0b11111, 0b111111, 0b11111);
+    mydisplay.draw_rectangle(screenx/2, screeny/2, screenx/2, screeny/2, 0xFF, 0, 0xFF);    // Purple
 
-    sleep(5);
+    sleep(3);   // shows what happens
 
     return 0;
 }

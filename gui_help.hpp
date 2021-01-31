@@ -41,10 +41,26 @@ class fb_display{
         uint32_t get_framey();
         uint32_t get_framebpp();
 
-        // Draw a rectangle of specified area and color (index of 256-element palette).
+        // Draw a pixel at specified (x,y); 16 bit color depth.
+        // draw pixel is small, made inline; should be faster...
+        inline void draw_pixel(uint32_t x, uint32_t y, 
+                        uint8_t red, uint8_t green, uint8_t blue);
+
+        // Draw a rectangle of specified area and color
+        // use memset for this? :P
         void draw_rectangle(uint32_t startx, uint32_t starty, 
                             uint32_t height, uint32_t width, 
                             uint8_t red, uint8_t green, uint8_t blue);
+
+        // memset the whole screen to be black.
+        void clear_screen();
+
+        // memset the whole screen to be <COLOR>
+        void fill_screen(uint8_t red, uint8_t green, uint8_t blue);
+
+        void draw_circle();
+        void draw_line();
+        void draw_fill();
 
 };
 
